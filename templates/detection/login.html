@@ -1,0 +1,28 @@
+<div class="card">
+  <div class="card-body">
+    <div class="m-sm-4">
+
+        <form method="post" class="post-form" action="{% url 'common:login' %}">
+          {% csrf_token %}
+          {% include "form_errors.html" %}
+
+          <div class="mb-3">
+              <label for="username" class="form-label">ID</label>
+              <input class="form-control form-control-lg" type="text" name="username" id="username"
+                    placeholder="Enter your name" value="{{ form.username.value|default_if_none:'' }}">
+          </div>
+          <div class="mb-3">
+              <label for="password" class="form-label">Password</label>
+              <input class="form-control form-control-lg" type="password" name="password" id="password"
+                    placeholder="Enter password" value="{{ form.password.value|default_if_none:'' }}">
+          </div>
+          <div class="text-center mt-3">
+              <button type="submit" class="btn-primary">Login</button>
+            </div>
+            <div>
+              <button> <a href="{% url 'common:signup' %}">Sign up</a></button>
+            </div>
+        </form>
+    </div>
+  </div>
+</div>
